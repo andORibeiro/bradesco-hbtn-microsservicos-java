@@ -1,0 +1,25 @@
+O que é Spring Boot Framework?
+Spring Boot é uma camada de conveniência sobre o ecossistema Spring que simplifica a criação de aplicações Java prontas para produção. Ele fornece um parent POM padrão, plugins de build e “starters" que permitem criar, empacotar e executar aplicações Spring com configuração mínima diminuindo o tempo gasto com essa etapa de montagem de ambiente.
+
+Quais são os benefícios e recursos que Spring Boot fornece?
+
+Starters prontos, como o spring-boot-starter-web, que agregam dependências comuns para funcionalidades como web, dados e testes, evitando busca manual por versões compatíveis.
+Integração de build (plugin Maven/Gradle) que facilita empacotar executáveis (jar/war) e rodar a app localmente.
+Ferramentas de desenvolvimento (por exemplo spring-boot-devtools) para hot reload e conveniências durante o desenvolvimento.
+Documentação e guias oficiais que cobrem padrões comuns (REST, MVC, deploy, imagem OCI), acelerando aprendizagem e padronização.
+Esses recursos reduzem boilerplate, aceleram o setup inicial e tornam o ciclo de desenvolvimento/implantação mais previsível.
+Como é feita a adição de novas dependências (JPA, Hibernate, etc…)?
+No modelo mostrado pelo projeto, a gestão é feita pelo Maven: editar o pom.xml e adicionar uma entrada <dependency> dentro de <dependencies>. Projetos Spring Boot normalmente usam starters oficiais (por exemplo spring-boot-starter-data-jpa) e o parent spring-boot-starter-parent para gerenciar versões. Para JPA você incluiria spring-boot-starter-data-jpa e o driver do banco (por exemplo H2, Postgres). O parent POM e os starters cuidam da compatibilidade entre versões.
+
+Na sua opinião, qual é a melhor IDE para trabalhar com o Spring Boot: Spring Tools Suite, IntelliJ IDEA, Eclipse ou NetBeans?
+
+Acredito que todas as opções funcionem bem, dependendo do perfil do desenvolvedor
+Particularmente sigo no uso do Eclipse em conjunto com o STS, pois me atendem bem e a integração que ambas possuem com o Sprint boot hoje me é suficiente. Tenho me arrisacado com o vscode devido a facilidade de adicionar novas extensões, que podem trazer um ganho na produtividade também.
+Ainda não tive experiência significativa com o IntelliJ, mas já ouvi falar que também possuí sua features e integrações para aumentar a produtividade.
+
+O que é Spring Initializr?
+Spring Initializr é um gerador de projetos (serviço web e integrações em IDEs) que cria o esqueleto inicial de um projeto Spring Boot com pom.xml/build, dependências selecionadas e estrutura de pastas. Ele acelera o início de um projeto ao produzir uma base configurada e pronta para desenvolver.
+
+Conclusão final:
+Spring Boot fornece uma experiência opinionada e produtiva para construir aplicações Java, com starters e integração de build que simplificam dependências e deploy; adicionar novos módulos passa por atualizar o pom.xml; e ferramentas como Spring Initializr e IDEs (IntelliJ/STS) tornam o fluxo de trabalho ainda mais rápido.
+
