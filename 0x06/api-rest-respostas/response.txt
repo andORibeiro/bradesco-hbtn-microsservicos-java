@@ -1,0 +1,6 @@
+You have entered valid ID
+{"status":400,"message":"You have entered invalid ID"}
+{"status":400,"message":"You have entered invalid CPF"}
+{"status":400,"message":"You have entered invalid CPF"}
+You have entered valid CPF
+You have entered valid USERNAME

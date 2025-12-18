@@ -13,31 +13,45 @@ import com.example.demo.exception.UserNameException;
 @RequestMapping(value = "/users")
 public class UserController {
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/user-id/{id}")
     public String findUserById(@PathVariable int id) {
+        String msg = "";
         if (id > 0 && id < 100) {
-            return "You have entered valid ID";
+            msg = "You have entered valid ID";
         } else {
             throw new UserIdException();
         }
+        return msg;
     }
 
-    @GetMapping("/username/{username}")
-    public String findUserByUserName(@PathVariable String username) {
-        if (username.length() > 3 && username.length() < 15) {
-            return "You have entered valid USERNAME";
+    @GetMapping("/user-name/{userName}")
+    public String findUserByName(@PathVariable String userName) {
+        String msg = "";
+        if (userName.length() > 3 && userName.length() < 15) {
+            msg = "You have entered valid USERNAME";
         } else {
             throw new UserNameException();
         }
+        return msg;
     }
 
-    @GetMapping("/cpf/{cpf}")
+    @GetMapping("/user-cpf/{cpf}")
     public String findUserByCPF(@PathVariable String cpf) {
-        if (cpf.length() > 3 && cpf.length() < 15) {
-            return "You have entered valid CPF";
+        String msg = "";
+        boolean isCPFValid = isCPF(cpf);
+        if (isCPFValid) {
+            msg = "You have entered valid CPF";
         } else {
             throw new CPFException();
         }
+        return msg;
+    }
+
+    public boolean isCPF(String CPF) {
+        if (CPF.length() > 3 && CPF.length() < 15) {
+            return true;
+        }
+        return false;
     }
 
 }
